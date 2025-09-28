@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adisha Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f0c29; color: #e0e0e0; scroll-behavior: smooth; }
+
+    /* Navbar */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background: rgba(15,12,41,0.85);
+      backdrop-filter: blur(6px);
+      display: flex; justify-content: center; padding: 15px 0;
+    }
+    nav .item {
+      text-decoration: none;
+      border: 1px solid #00ffc3;
+      margin: 0 10px;
+      padding: 5px 20px;
+      border-radius: 25px;
+      color: #00ffc3;
+      font-weight: 700;
+      transition: all 0.3s ease-in-out;
+    }
+    nav .item:hover {
+      background: linear-gradient(90deg, #00ffc3, #ffd700);
+      color: #0f0c29;
+      box-shadow: 0 0 10px rgba(255,215,0,0.6);
+    }
+
+    /* Section Styles */
+    section { padding: 60px 20px; text-align: center; }
+    h1, h2 { text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
+    h2 { color: #00ffc3; margin-bottom: 35px; font-size: 28px; }
+
+    /* Home Section */
+    .home-section {
+      height: 100vh;
+      background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('bg.webp');
+      background-size: cover;
+      background-position: center;
+      display: flex; justify-content: center; align-items: center; text-align: center;
+      position: relative;
+    }
+    .home-content {
+      z-index: 1;
+      padding: 50px 80px; border-radius: 15px;
+      background: rgba(0, 0, 0, 0.5);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    }
+    .home-content h1 { font-size: 3.5rem; color: #00ffc3; margin-bottom: 15px; }
+    .home-content p { font-size: 1.7rem; color: #e0e0e0; margin-bottom: 25px; }
+    .home-content .btn {
+      display: inline-block;
+      background-color: #00ffc3; color: #0f0c29;
+      padding: 15px 35px; font-size: 1.3rem; font-weight: 700;
+      border-radius: 12px; border: 2px solid #00ffc3;
+      text-decoration: none; transition: all 0.3s ease-in-out;
+    }
+    .home-content .btn:hover {
+      background-color: #ffd700; color: #0f0c29;
+      border-color: #ffd700;
+      box-shadow: 0 0 15px #ffd700;
+    }
+
+    /* About Section */
+    .about-section { background: linear-gradient(120deg,#1f1c49,#0f0c29); }
+    .about-photo { width: 250px; height: 250px; margin: 0 auto 20px; border-radius: 50%; overflow: hidden; border: 4px solid #00ffc3; }
+    .about-photo img { width: 100%; object-fit: cover; object-position: top; }
+    .about-description { font-size: 1.1rem; line-height: 1.8; max-width: 700px; margin: 0 auto 25px; text-align: justify; color: #e0e0e0; }
+    .resume-buttons { margin-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .resume-buttons a { text-decoration: none; padding: 10px 25px; border-radius: 25px; font-weight: 700; transition: all 0.3s ease-in-out; color: #0f0c29; }
+    #view-resume { background-color: #00ffc3; }
+    #download { background-color: #ffd700; }
+    .resume-buttons a:hover { box-shadow: 0 5px 15px rgba(255,215,0,0.4); }
+
+    /* Skills Section */
+    .skills-section { background: #1f1c49; }
+    .skill-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+    .skill-card {
+      background: rgba(0,255,195,0.15); border: 1px solid rgba(0,255,195,0.3);
+      border-radius: 15px; padding: 25px; width: 150px; text-align: center; transition: all 0.3s;
+    }
+    .skill-card img { width: 60px; margin-bottom: 10px; }
+    .skill-card h4 { margin-bottom: 12px; color: #e0e0e0; }
+    .skill-card:hover { transform: translateY(-10px); box-shadow: 0 8px 30px rgba(0,255,195,0.5); }
+    .progress { background: #333; border-radius: 5px; height: 8px; overflow: hidden; }
+    .progress-bar { height: 100%; background-color: #00ffc3; transition: width 1s ease-in-out; width: 0; }
+
+    /* Projects Section */
+    .projects-section { background: linear-gradient(120deg,#0f0c29,#1f1c49); }
+    .project-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; }
+    .project-item { background: rgba(0,255,195,0.1); border-radius: 15px; padding: 20px; width: 320px; text-align: center; transition: all 0.3s; overflow: hidden; }
+    .project-item:hover { transform: translateY(-10px); box-shadow: 0 8px 25px rgba(0,255,195,0.5); }
+    .project-img { width: 100%; border-radius: 12px; margin-bottom: 10px; transition: all 0.3s; }
+    .project-item:hover .project-img { transform: scale(1.05); filter: brightness(1.2); }
+    .project-item h4 { color: #00ffc3; margin-bottom: 10px; }
+    .project-item p { font-size: 14px; margin-bottom: 12px; color: #e0e0e0; }
+    .demo-link { cursor: pointer; padding: 8px 15px; border-radius: 20px; background: #ffd700; color: #0f0c29; border: none; font-weight: 600; transition: all 0.3s; }
+    .demo-link:hover { background: #00ffc3; color: #0f0c29; box-shadow: 0 5px 15px rgba(0,255,195,0.4); }
+
+    /* Modals */
+    .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.9); }
+    .modal-content { background-color: #222; margin: 10% auto; padding: 25px; border-radius: 15px; width: 80%; max-width: 600px; color: #e0e0e0; position: relative; }
+    .close { color: #ffd700; position: absolute; top: 10px; right: 20px; font-size: 28px; font-weight: bold; cursor: pointer; transition: color 0.3s; }
+    .close:hover { color: #00ffc3; }
+
+    /* Achievements Section */
+    .achievements-section {
+      background: linear-gradient(135deg, #0f0c29, #1f1c49);
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .achievements-section h2 {
+      color: #00ffc3;
+      font-size: 32px;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .achievements-section h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: #ffd700;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+    .achievement-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+    .achievement-item {
+      background: linear-gradient(135deg, rgba(0,255,195,0.1), rgba(255,215,0,0.1));
+      border-radius: 20px;
+      padding: 25px 20px;
+      width: 280px;
+      color: #e0e0e0;
+      text-align: center;
+      transition: all 0.4s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+      position: relative;
+      overflow: hidden;
+    }
+    .achievement-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 25px rgba(0,255,195,0.6);
+      background: linear-gradient(135deg, #00ffc3, #ffd700);
+      color: #0f0c29;
+    }
+    .achievement-item h4 {
+      margin: 15px 0 10px;
+      font-size: 20px;
+      color: #00ffc3;
+    }
+    .achievement-item p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #e0e0e0;
+    }
+    .achievement-icon {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+    }
+    .achievement-item:hover .achievement-icon {
+      transform: scale(1.2) rotate(10deg);
+    }
+
+    /* Contact Section */
+    .contact-section { background: linear-gradient(120deg,#1f1c49,#0f0c29); }
+    .contact-options { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
+    .contact-item { background: rgba(0,255,195,0.15); padding: 12px 20px; border-radius: 12px; transition: all 0.3s; }
+    .contact-item a { text-decoration: none; color: #e0e0e0; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+    .contact-item img { width: 20px; }
+    .contact-item:hover { background: #00ffc3; color: #0f0c29; transform: translateY(-5px); box-shadow: 0 5px 12px rgba(0,255,195,0.5); }
+
+    /* Footer */
+    footer { padding: 25px; text-align: center; background: #0f0c29; color: #e0e0e0; }
+    footer a { color: #00ffc3; text-decoration: none; }
+
+    /* Responsive */
+    @media(max-width:768px){
+      .skill-cards, .project-list, .contact-options, .achievement-list { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <a href="#home" class="item">Home</a>
+  <a href="#about" class="item">About</a>
+  <a href="#skills" class="item">Skills</a>
+  <a href="#projects" class="item">Projects</a>
+  <a href="#achievements" class="item">Achievements</a>
+  <a href="#contact" class="item">Contact</a>
+</nav>
+
+<!-- Home Section -->
+<section class="home-section" id="home">
+  <div class="home-content">
+    <h1>Hi, I'm Adisha</h1>
+    <p>Data Analyst | Python | SQL | Machine Learning</p>
+    <a href="#projects" class="btn">See My Work</a>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section" id="about">
+  <h2>About Me</h2>
+  <div class="about-photo">
+    <img src="adisha.jpg" alt="My Photo">
+  </div>
+  <p class="about-description">
+    Hi, I am Adisha, a motivated postgraduate in Mathematics with strong analytical skills. I build projects in Python and Data Science, transforming raw data into insights. Passionate about continuous learning and problem-solving.
+  </p>
+  <div class="resume-buttons">
+    <a id="view-resume" href="ADISHA C V.pdf" target="_blank">View Resume</a>
+    <a id="download" href="ADISHA C V.pdf" download>Download Resume</a>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section class="skills-section" id="skills">
+  <h2>Skills</h2>
+  <div class="skill-cards">
+    <div class="skill-card">
+      <img src="python-programing-language-icon-3d-rendering-vector-illustration_743950-5638.webp" alt="Python Logo">
+      <h4>Python</h4>
+      <div class="progress"><div class="progress-bar" style="--width:85%; width:85%;"></div></div>
+    </div>
+    <div class="skill-card">
+      <img src="MySQL-Logo.webp" alt="SQL Logo">
+      <h4>SQL</h4>
+      <div class="progress"><div class="progress-bar" style="--width:90%; width:90%;"></div></div>
+    </div>
+    <div class="skill-card">
+      <img src="matplotlib-logo-png_seeklogo-428047.webp" alt="Matplotlib Logo">
+      <h4>Matplotlib</h4>
+      <div class="progress"><div class="progress-bar" style="--width:80%; width:80%;"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section class="projects-section" id="projects">
+  <h2>Projects</h2>
+  <div class="project-list">
+    <div class="project-item">
+      <img src="bus.webp" alt="Bus Ticket Project" class="project-img">
+      <h4>Bus Ticket Booking System</h4>
+      <p>Python program for booking and canceling bus tickets.</p>
+      <button class="demo-link" onclick="openModal('modal1')">Read Summary</button>
+    </div>
+    <div class="project-item">
+      <img src="police.webp" alt="Police Arrests Analysis" class="project-img">
+      <h4>Police Arrests Data Analysis</h4>
+      <p>Analyzed police stop data with Python & Pandas.</p>
+      <button class="demo-link" onclick="openModal('modal2')">Read Summary</button>
+    </div>
+    <div class="project-item">
+      <img src="sales.webp" alt="Sales Data Analysis" class="project-img">
+      <h4>Sales Data Analysis</h4>
+      <p>Analyze revenue trends, top products & regional performance.</p>
+      <button class="demo-link" onclick="openModal('modal3')">Read Summary</button>
+    </div>
+  </div>
+</section>
+
+<!-- Achievements Section -->
+<section class="achievements-section" id="achievements">
+  <h2>Achievements</h2>
+  <div class="achievement-list">
+    <div class="achievement-item">
+      <img src="gold.png" alt="HackerRank Badge" class="achievement-icon">
+      <h4>HackerRank 5-Star Python Badge</h4>
+      <p>Demonstrated strong programming and problem-solving skills in Python through HackerRank certification.</p>
+    </div>
+    <div class="achievement-item">
+      <img src="hacker.webp" alt="SQL Badge" class="achievement-icon">
+      <h4>SQL Certification</h4>
+      <p>Completed SQL Basic, Intermediate, and Advanced certifications from HackerRank, showcasing database proficiency.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+  <h2>Contact Me</h2>
+  <div class="contact-options">
+    <div class="contact-item">
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aadishakamal@gmail.com" target="_blank">
+        <img src="mail.webp" alt="Email"> Email
+      </a>
+    </div>
+    <div class="contact-item">
+      <a href="tel:+918078843365">
+        <img src="mob.webp" alt="Phone"> +91 8078843365
+      </a>
+    </div>
+    <div class="contact-item">
+      <a href="https://www.linkedin.com/in/adisha-p-v/" target="_blank">
+        <img src="linkdin.webp" alt="LinkedIn"> LinkedIn
+      </a>
+    </div>
+    <div class="contact-item">
+      <a href="https://github.com/adisha" target="_blank">
+        <img src="github.webp" alt="GitHub"> GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Adisha </p>
+</footer>
+
+<!-- Modals (placeholders for Read Summary) -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal1')">&times;</span>
+    <h3>Bus Ticket Booking System</h3>
+    <p>Python project for booking and cancelling tickets, demonstrates file handling, object-oriented programming, and user interface interaction.</p>
+  </div>
+</div>
+<div id="modal2" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal2')">&times;</span>
+    <h3>Police Arrests Data Analysis</h3>
+    <p>Used Python & Pandas to analyze police stop data, clean datasets, visualize trends, and derive actionable insights.</p>
+  </div>
+</div>
+<div id="modal3" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal3')">&times;</span>
+    <h3>Sales Data Analysis</h3>
+    <p>Analyzed sales data to identify revenue trends, top products, regional performance, and provide visual insights using Python & Matplotlib.</p>
+  </div>
+</div>
+
+<script>
+  // Open Modal
+  function openModal(id) {
+    document.getElementById(id).style.display = 'block';
+  }
+  // Close Modal
+  function closeModal(id) {
+    document.getElementById(id).style.display = 'none';
+  }
+
+  // Close modal if clicked outside content
+  window.onclick = function(event) {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+      if (event.target == modal) modal.style.display = 'none';
+    });
+  }
+</script>
+
+</body>
+</html>
