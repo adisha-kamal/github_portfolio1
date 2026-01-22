@@ -166,43 +166,83 @@ nav {
     color: #FFD700;
 }
 
-/* ====== Projects Section ====== */
-.projects-section {
-    background: linear-gradient(135deg, #131010 45%, #161616 55%);
-    padding: 40px 20px;
-    color: #f5f5f5;
-}
+<section class="projects-section" id="projects">
+    <h2 class="section-title">Projects</h2>
 
-.projects-section .section-title {
-    font-size: 28px;
-    color: #48CFCB;
-    margin-bottom: 20px;
-}
+    <div class="project-item">
+        <h4>Meta Ad Performance Analysis Dashboard</h4>
 
-.project-item {
-    background: rgba(72, 207, 203, 0.1);
-    border: 1px solid rgba(72, 207, 203, 0.3);
-    border-radius: 10px;
-    padding: 20px;
-    margin: 10px;
-    transition: transform 0.3s ease;
-}
+        <!-- Image placeholder (you will upload image here) -->
+        <img src="images/meta-ads.png" alt="Meta Ads Dashboard" class="project-image">
 
-.project-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 30px rgba(72, 207, 203, 0.5);
-}
+        <p>
+            An end-to-end data analytics project that analyzes Facebook and Instagram advertising data
+            to evaluate campaign performance and optimize marketing decisions.
+        </p>
 
-.project-item h4 {
-    font-size: 19px;
-    font-weight: 600;
-    color: #48CFCB;
-}
+        <p>
+            The project focuses on tracking key performance indicators such as CTR, CPC, CPA,
+            impressions, reach, and conversions using interactive Power BI dashboards.
+        </p>
 
-.project-item p {
-    font-size: 14px;
-    color: #f5f5f5;
-}
+        <p><strong>Tools Used:</strong> Power BI, SQL, DAX, Excel</p>
+    </div>
+
+    <div class="project-item">
+        <h4>Attendance Management System</h4>
+
+        <img src="images/attendance.png" alt="Attendance System" class="project-image">
+
+        <p>
+            A digital attendance management system developed to automate attendance tracking
+            and reporting, reducing manual work and errors.
+        </p>
+
+        <p>
+            The system stores attendance records in a structured database and generates
+            attendance summaries and percentages automatically.
+        </p>
+
+        <p><strong>Tools Used:</strong> Python, SQL, HTML, CSS</p>
+    </div>
+
+    <div class="project-item">
+        <h4>Cake Analyzer – Cost | Quality | Optimization</h4>
+
+        <img src="images/cake-analyzer.png" alt="Cake Analyzer Project" class="project-image">
+
+        <p>
+            A machine learning-based application that analyzes cake ingredients to optimize
+            production cost while maintaining quality standards.
+        </p>
+
+        <p>
+            Regression models predict cost and quality, and the results are displayed through
+            an interactive Streamlit web application.
+        </p>
+
+        <p><strong>Tools Used:</strong> Python, Machine Learning, Pandas, Scikit-learn, Streamlit</p>
+    </div>
+
+    <div class="project-item">
+        <h4>Machine Learning Models (Regression & Classification)</h4>
+
+        <img src="images/ml-projects.png" alt="Machine Learning Projects" class="project-image">
+
+        <p>
+            A collection of machine learning models built to solve real-world regression and
+            classification problems using structured datasets.
+        </p>
+
+        <p>
+            The project includes data preprocessing, feature engineering, model training,
+            evaluation, and performance comparison.
+        </p>
+
+        <p><strong>Tools Used:</strong> Python, Scikit-learn, Pandas, Matplotlib</p>
+    </div>
+
+</section>
 
 /* ====== Achievements Section ====== */
 .achievements-section {
